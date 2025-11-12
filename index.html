@@ -1,157 +1,752 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="28H — инновационные решения для нефтегазовой отрасли. Энергия будущего с заботой о природе." />
+  <meta name="keywords" content="нефтегазовая отрасль, энергия будущего, устойчивые решения, добыча нефти, переработка" />
   <title>28H — Энергия будущего</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", sans-serif; scroll-behavior: smooth; }
-    body { background-color: #f9f9ff; color: #222; }
-    header { display: flex; justify-content: space-between; align-items: center; padding: 20px 10%; background: linear-gradient(90deg, #e7e9ff, #f9f9ff); position: fixed; width: 100%; top: 0; z-index: 1000; }
-    header h1 { font-weight: 700; font-size: 24px; color: #222; }
-    nav a { margin: 0 12px; color: #333; text-decoration: none; font-weight: 500; }
-    nav a:hover { color: #0056ff; }
+    :root {
+      --bg: #f6f7fb;
+      --card: #ffffff;
+      --accent: #0b63ff;
+      --muted: #6b6f76;
+      --dark: #0f1720;
+      --shadow: 0 10px 30px rgba(15, 23, 32, 0.06);
+      --glass: rgba(255, 255, 255, 0.6);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(180deg, var(--bg) 0%, #fbfbfd 100%);
+      color: var(--dark);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      z-index: 999;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.85);
+      box-shadow: 0 4px 12px rgba(10, 10, 10, 0.05);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-subtitle {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 400;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: var(--transition);
+    }
+
+    nav a:hover {
+      color: var(--accent);
+      background: rgba(11, 99, 255, 0.08);
+    }
+
+    nav a.active {
+      color: var(--accent);
+      background: rgba(11, 99, 255, 0.1);
+    }
+
+    .cta {
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 6px 18px rgba(11, 99, 255, 0.18);
+      transition: var(--transition);
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(11, 99, 255, 0.24);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--dark);
+      transition: var(--transition);
+    }
+
     .hero {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 120px 10% 80px; background: url('https://images.unsplash.com/photo-1581091215367-59ab6f0c0b76?auto=format&fit=crop&w=1600&q=80') center/cover;
-      color: white; position: relative;
+      margin-top: 68px;
+      min-height: calc(100vh - 68px);
+      display: flex;
+      align-items: center;
+      background-image: url("https://rextag.com/cdn/shop/articles/the-future-of-renewable-energy.jpg?v=1712126416&width=1100");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
     }
-    .hero::after {
-      content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.55);
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(6, 12, 30, 0.5) 0%, rgba(6, 12, 30, 0.3) 100%);
     }
-    .hero-content {
-      position: relative; max-width: 500px;
+
+    .hero .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 20px;
+      position: relative;
+      z-index: 2;
     }
-    .hero h2 { font-size: 42px; font-weight: 700; margin-bottom: 20px; }
-    .hero p { font-size: 18px; margin-bottom: 25px; }
-    .buttons a {
-      text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: 600;
-      transition: 0.3s; margin-right: 10px;
+
+    .hero-left {
+      max-width: 50%;
     }
-    .btn-primary { background: #0056ff; color: #fff; }
-    .btn-outline { border: 2px solid #fff; color: #fff; }
-    section { padding: 100px 10%; text-align: center; }
-    h3 { font-size: 30px; margin-bottom: 40px; color: #222; }
-    .services, .reasons, .projects, .reviews, .catalog { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+
+    .hero h1 {
+      color: #fff;
+      font-size: 52px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      font-weight: 800;
+      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero p {
+      color: rgba(255, 255, 255, 0.95);
+      margin-bottom: 24px;
+      font-size: 20px;
+      line-height: 1.5;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .btn {
+      padding: 14px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: var(--transition);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(11, 99, 255, 0.2);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(11, 99, 255, 0.3);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .hero-right {
+      width: 40%;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+      transition: var(--transition);
+    }
+
+    .hero-right:hover {
+      transform: translateY(-5px);
+    }
+
+    .hero-right img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    section {
+      padding: 100px 0;
+      scroll-margin-top: 80px;
+    }
+
+    h2 {
+      font-size: 36px;
+      margin-bottom: 24px;
+      text-align: center;
+      font-weight: 800;
+    }
+
+    .lead {
+      color: var(--muted);
+      max-width: 800px;
+      margin: 0 auto 32px;
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
     .card {
-      background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      transition: 0.3s;
+      background: var(--card);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      text-align: center;
     }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 6px 24px rgba(0,0,0,0.1); }
-    .card img { width: 100%; height: 160px; object-fit: cover; border-radius: 10px; margin-bottom: 10px; }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(15, 23, 32, 0.1);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 16px;
+    }
+
+    .card h4 {
+      font-size: 20px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .about-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      display: block;
+      margin: 0 auto;
+    }
+
+    .accordion {
+      margin-top: 40px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: var(--card);
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .accordion-item:last-child {
+      border-bottom: none;
+    }
+
+    .accordion-header {
+      padding: 20px 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 600;
+      font-size: 18px;
+      transition: var(--transition);
+    }
+
+    .accordion-header:hover {
+      background: rgba(11, 99, 255, 0.05);
+    }
+
+    .accordion-header::after {
+      content: "+";
+      font-size: 24px;
+      color: var(--accent);
+      transition: transform 0.4s ease;
+    }
+
+    .accordion-header.active::after {
+      content: "−";
+      transform: rotate(180deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      background: #fafbff;
+    }
+
+    .accordion-content.open {
+      max-height: 300px;
+      padding: 20px 24px;
+    }
+
+    .accordion-content p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .review {
+      padding: 24px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, #fff, #fbfbff);
+      box-shadow: var(--shadow);
+      text-align: left;
+    }
+
+    .review p {
+      color: var(--muted);
+      font-style: italic;
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    .review strong {
+      display: block;
+      font-size: 16px;
+      color: var(--dark);
+    }
+
     footer {
-      background: #111; color: #ccc; text-align: center; padding: 40px 10%;
+      background: #0b1116;
+      color: #c8d0da;
+      padding: 60px 0;
+      text-align: center;
     }
-    footer a { color: #fff; text-decoration: none; margin: 0 10px; }
-    .more { max-width: 700px; margin: 0 auto; font-size: 17px; color: #444; line-height: 1.6; }
+
+    footer h2 {
+      font-size: 28px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    footer p {
+      margin: 8px 0;
+    }
+
+    footer a {
+      color: #eaf2ff;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 8px;
+      transition: var(--transition);
+    }
+
+    footer a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 980px) {
+      .hero .wrap {
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      .hero-left {
+        max-width: 100%;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .hero-right {
+        width: 100%;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        gap: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      nav.open {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        min-height: auto;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>28H</h1>
-    <nav>
-      <a href="#about">О нас</a>
-      <a href="#services">Наши услуги</a>
-      <a href="#reasons">Почему нас выбирают</a>
-      <a href="#projects">Наши проекты</a>
-      <a href="#reviews">Отзывы</a>
-      <a href="#catalog">Каталог</a>
-      <a href="#contacts">Контакты</a>
-    </nav>
+    <div class="header-inner wrap">
+      <div class="logo">
+        28H
+        <span class="logo-subtitle">Энергия будущего</span>
+      </div>
+      <nav id="nav-menu" aria-label="Главное меню">
+        <a href="#about">О нас</a>
+        <a href="#services">Наши услуги</a>
+        <a href="#stages">Этапы работы</a>
+        <a href="#reasons">Почему нас</a>
+        <a href="#projects">Проекты</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#catalog">Каталог</a>
+        <a href="#contacts" class="cta">Связаться</a>
+      </nav>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
   </header>
-
-  <section class="hero">
-    <div class="hero-content">
-      <h2>Энергия будущего</h2>
-      <p>Энергия будущего. Забота о природе.<br>Эффективные решения для нефтегазовой отрасли.</p>
-      <div class="buttons">
-        <a href="#catalog" class="btn-primary">Каталог</a>
-        <a href="#more" class="btn-outline">Подробнее</a>
+  <main>
+    <section class="hero" aria-label="Главный экран">
+      <div class="wrap">
+        <div class="hero-left">
+          <h1>Энергия будущего</h1>
+          <p class="lead">Энергия будущего. Забота о природе. Эффективные решения для нефтегазовой отрасли — устойчиво и безопасно.</p>
+          <div class="buttons">
+            <a class="btn btn-primary" href="#catalog">Каталог</a>
+            <a class="btn btn-ghost" href="#about">Подробнее</a>
+          </div>
+        </div>
+        <div class="hero-right" aria-hidden="true">
+          <img src="https://s7d2.scene7.com/is/image/Caterpillar/CM20180214-43803-09186" alt="Передовые технологии в нефтегазовой отрасли">
+        </div>
       </div>
-    </div>
-  </section>
-
-  <section id="about">
-    <h3>О нас</h3>
-    <p>Компания 28H — современный лидер в области инновационных решений для нефтегазовой промышленности. Мы объединяем технологии и устойчивое развитие ради чистого будущего.</p>
-    <br><br>
-    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80" width="80%" alt="О компании">
-  </section>
-
-  <section id="more">
-    <h3>Подробнее о компании</h3>
-    <div class="more">
-      <p>С 2015 года 28H внедряет высокотехнологичные решения для добычи, транспортировки и переработки нефти. Мы разрабатываем системы мониторинга, оптимизируем процессы и внедряем цифровые технологии. Наша цель — соединить промышленность и экологию, сделать энергетику устойчивой и безопасной.</p>
-    </div>
-  </section>
-
-  <section id="services">
-    <h3>Наши услуги</h3>
-    <div class="services">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1581093448795-90a9d6c9cc47?auto=format&fit=crop&w=800&q=80" alt="">
-        <h4>Добыча и переработка нефти</h4>
-        <p>Современные технологии для повышения эффективности и экологичности добычи.</p>
+    </section>
+    <section id="about" aria-labelledby="about-title" class="wrap">
+      <h2 id="about-title">О нас</h2>
+      <p class="lead">Компания 28H — современный лидер в области инновационных решений для нефтегазовой промышленности. С 2015 года мы внедряем высокотехнологичные решения для добычи, транспортировки и переработки нефти и газа.</p>
+      <img src="https://www.shutterstock.com/image-photo/professional-petroleum-refinery-engineer-team-260nw-2574485407.jpg" alt="Команда профессионалов 28H" class="about-img">
+    </section>
+    <section id="services" class="wrap">
+      <h2>Наши услуги</h2>
+      <div class="grid">
+        <article class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Oil_well.jpg" alt="Добыча и переработка нефти">
+          <h4>Добыча и переработка</h4>
+          <p>Современные технологии для повышения эффективности и снижения затрат.</p>
+        </article>
+        <article class="card">
+          <img src="https://energy-oil-gas.com/wp-content/uploads/sites/3/2011/11/LA-102011b.png" alt="Инженерные решения">
+          <h4>Инженерные решения</h4>
+          <p>Разработка и внедрение систем автоматизации для оптимизации процессов.</p>
+        </article>
+        <article class="card">
+          <img src="https://images.squarespace-cdn.com/content/v1/55232e22e4b0b2e8780a8b88/c8feb238-e580-47ee-a87c-3014bbe978d3/EEMS_blog_Nov2023_2.jpg" alt="Энергоэффективность">
+          <h4>Энергоэффективность</h4>
+          <p>Оптимизация процессов и снижение энергозатрат с использованием зеленых технологий.</p>
+        </article>
+        <article class="card">
+          <img src="https://europetro.com/img/gallery/CPE_Services.png" alt="Консалтинг">
+          <h4>Консалтинг</h4>
+          <p>Профессиональная поддержка и консультации на всех этапах проекта.</p>
+        </article>
       </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1631570058472-7c2b1b21df95?auto=format&fit=crop&w=800&q=80" alt="">
-        <h4>Инженерные решения</h4>
-        <p>Разработка и внедрение систем автоматизации и мониторинга.</p>
+    </section>
+    <section id="stages" class="wrap">
+      <h2>Этапы работы</h2>
+      <p class="lead">Прозрачный процесс от заявки до запуска. Нажмите, чтобы узнать подробности каждого этапа.</p>
+      <div class="accordion">
+        <div class="accordion-item">
+          <div class="accordion-header" tabindex="0" role="button" aria-expanded="false">1. Заявка</div>
+          <div class="accordion-content">
+            <p>Вы оставляете заявку через форму, телефон или Telegram. Мы фиксируем задачу и назначаем менеджера.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" tabindex="0" role="button" aria-expanded="false">2. Консультация</div>
+          <div class="accordion-content">
+            <p>Наш инженер связывается с вами в течение 2 часов. Уточняем детали, объём работ, сроки и бюджет.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" tabindex="0" role="button" aria-expanded="false">3. Проектирование</div>
+          <div class="accordion-content">
+            <p>Готовим ТЗ, схемы, 3D-модели и коммерческое предложение. Всё согласовываем с вами.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" tabindex="0" role="button" aria-expanded="false">4. Согласование и договор</div>
+          <div class="accordion-content">
+            <p>Подписываем договор, фиксируем этапы, стоимость и сроки. Оплата по этапам — прозрачно и безопасно.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" tabindex="0" role="button" aria-expanded="false">5. Выполнение и запуск</div>
+          <div class="accordion-content">
+            <p>Монтаж, пусконаладка, обучение персонала. Сдаём объект «под ключ» с гарантией 12 месяцев.</p>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=800&q=80" alt="">
-        <h4>Энергоэффективные технологии</h4>
-        <p>Оптимизация производственных процессов и снижение энергозатрат.</p>
+    </section>
+    <section id="reasons" class="wrap">
+      <h2>Почему нас выбирают</h2>
+      <div class="grid">
+        <div class="card">
+          <h4>10+ лет опыта</h4>
+          <p>Богатый опыт в нефтегазовой отрасли с успешными проектами по всему миру.</p>
+        </div>
+        <div class="card">
+          <h4>Современные технологии</h4>
+          <p>Передовые решения для повышения эффективности и устойчивости.</p>
+        </div>
+        <div class="card">
+          <h4>Надёжность</h4>
+          <p>Гарантия качества, соблюдение сроков и полная прозрачность.</p>
+        </div>
+        <div class="card">
+          <h4>Международное сотрудничество</h4>
+          <p>Работаем с ведущими партнёрами по всему миру для лучших результатов.</p>
+        </div>
       </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?auto=format&fit=crop&w=800&q=80" alt="">
-        <h4>Консалтинг и сопровождение</h4>
-        <p>Профессиональная поддержка на всех этапах проектов.</p>
+    </section>
+    <section id="projects" class="wrap projects">
+      <h2>Наши проекты</h2>
+      <div class="grid">
+        <article class="card">
+          <img src="https://www.cleanenergywire.org/sites/default/files/styles/gallery_image/public/paragraphs/images/nord-stream-2-route-map-eng.jpg?itok=WFZfxd4M" alt="Проект Северный поток">
+          <h4>Северный поток</h4>
+          <p>Модернизация нефтяных трубопроводов для повышения пропускной способности.</p>
+        </article>
+        <article class="card">
+          <img src="https://cdn.inspenet.com/1-IMG-P-ING-Oil-extraction-Innovations-and-challenges-toward-a-sustainable-industry-copia-1.webp" alt="Green Energy">
+          <h4>Green Energy</h4>
+          <p>Экологически безопасные технологии добычи с минимальным воздействием на окружающую среду.</p>
+        </article>
+        <article class="card">
+          <img src="https://www.shutterstock.com/image-photo/smart-industry-40-mangement-control-260nw-2525431689.jpg" alt="Smart Refinery">
+          <h4>Smart Refinery</h4>
+          <p>Цифровизация перерабатывающих комплексов для оптимизации производства.</p>
+        </article>
       </div>
-    </div>
-  </section>
+    </section>
+    <section id="reviews" class="wrap">
+      <h2>Отзывы клиентов</h2>
+      <div class="grid">
+        <div class="review card">
+          <p>“Отличное сотрудничество! Высокое качество и профессионализм на каждом этапе.”</p>
+          <strong>— ООО "ЭнергоПром"</strong>
+        </div>
+        <div class="review card">
+          <p>“Современные технологии и надёжные решения. Рекомендуем всем партнёрам!”</p>
+          <strong>— ГазИнжиниринг</strong>
+        </div>
+      </div>
+    </section>
+    <section id="catalog" class="wrap">
+      <h2>Каталог продукции</h2>
+      <p class="lead">Широкий ассортимент оборудования для нефтегазовой отрасли. Надежность и инновации в каждом изделии.</p>
+      <div class="grid">
+        <article class="card">
+          <img src="https://empoweringpumps.com/wp-content/uploads/2018/06/Pump-Jacks-Altra.png" alt="Нефтяные насосы">
+          <h4>Нефтяные насосы</h4>
+          <p>Мощные модели для любых условий эксплуатации с высокой производительностью.</p>
+        </article>
+        <article class="card">
+          <img src="https://cdn11.bigcommerce.com/s-haaqcf2z/images/stencil/1170x657/uploaded_images/recorderscharts-pens-266913-monitor-oil-pipeline-blogbanner1.jpg?t=1707234880" alt="Сенсоры давления">
+          <h4>Сенсоры давления</h4>
+          <p>Точные датчики для мониторинга трубопроводов и систем.</p>
+        </article>
+        <article class="card">
+          <img src="https://lh6.googleusercontent.com/y9zcAdqfhBbz8S-4Dbj-jSp4CPYUaYLAJ1dIftFct2m51GyMUhRyervcDOpHnio_VikxEg0i_ldxCv7Vmr3kypuY8joY0Pa8LgQ7qmx2t6M5tmNuvn8T3H9ShkVVlkimBZu9gQzA" alt="Системы автоматизации">
+          <h4>Системы автоматизации</h4>
+          <p>Интеллектуальное управление процессами для повышения эффективности.</p>
+        </article>
+      </div>
+    </section>
+    <footer id="contacts">
+      <div class="wrap">
+        <h2>Контакты</h2>
+        <p>Телефон: +7 (999) 123-45-67 &nbsp; | &nbsp; Email: info@28h.ru</p>
+        <p style="margin-top: 16px;"><a href="http://t.me/VikaaaaXX" target="_blank" rel="noopener">Telegram</a> • <a href="#">VK</a> • <a href="#">YouTube</a></p>
+        <p style="margin-top: 24px; color: #9fb0d6;">© 2025 28H. Все права защищены.</p>
+      </div>
+    </footer>
+  </main>
+  <script>
+    // Плавная прокрутка
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const target = document.querySelector(targetId);
+        if (!target) return;
+        const headerOffset = document.querySelector('header').offsetHeight;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 20;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      });
+    });
 
-  <section id="reasons">
-    <h3>Почему нас выбирают</h3>
-    <div class="reasons">
-      <div class="card"><h4>10+ лет опыта</h4><p>Богатый опыт работы в нефтегазовой отрасли.</p></div>
-      <div class="card"><h4>Современные технологии</h4><p>Используем передовые решения для повышения эффективности.</p></div>
-      <div class="card"><h4>Надёжность</h4><p>Гарантия качества и точность выполнения сроков.</p></div>
-      <div class="card"><h4>Международное сотрудничество</h4><p>Работаем с партнёрами по всему миру.</p></div>
-    </div>
-  </section>
+    // Подсветка активного пункта меню
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    function highlightMenu() {
+      const scrollPos = window.pageYOffset + document.querySelector('header').offsetHeight + 60;
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const id = section.getAttribute('id');
+        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${id}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }
+    window.addEventListener('scroll', highlightMenu);
+    window.addEventListener('load', highlightMenu);
 
-  <section id="projects">
-    <h3>Наши проекты</h3>
-    <div class="projects">
-      <div class="card"><img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=800&q=80"><h4>Северный поток</h4><p>Масштабный проект по модернизации нефтяных трубопроводов.</p></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1535379453347-1ffd615e2e8b?auto=format&fit=crop&w=800&q=80"><h4>Green Energy</h4><p>Переход на экологически безопасные технологии добычи.</p></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1616248308074-ec210a96b1a3?auto=format&fit=crop&w=800&q=80"><h4>Smart Refinery</h4><p>Автоматизация и цифровизация перерабатывающих комплексов.</p></div>
-    </div>
-  </section>
+    // Аккордеон
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        const isOpen = content.classList.contains('open');
+        document.querySelectorAll('.accordion-content').forEach(c => {
+          c.classList.remove('open');
+          c.style.maxHeight = null;
+        });
+        document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
+        if (!isOpen) {
+          header.classList.add('active');
+          content.classList.add('open');
+          content.style.maxHeight = `${content.scrollHeight}px`;
+        }
+      });
+      header.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          header.click();
+        }
+      });
+    });
 
-  <section id="reviews">
-    <h3>Отзывы наших клиентов</h3>
-    <div class="reviews">
-      <div class="card"><p>“Отличное сотрудничество! Высокое качество и профессионализм.”</p><strong>— ООО "ЭнергоПром"</strong></div>
-      <div class="card"><p>“Современные технологии и надёжные решения. Рекомендуем!”</p><strong>— ГазИнжиниринг</strong></div>
-    </div>
-  </section>
-
-  <section id="catalog">
-    <h3>Каталог продукции</h3>
-    <div class="catalog">
-      <div class="card"><img src="https://images.unsplash.com/photo-1581092334507-1e7e1e54e2df?auto=format&fit=crop&w=800&q=80"><h4>Нефтяные насосы</h4><p>Модели повышенной мощности для различных условий эксплуатации.</p></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1581093588394-7a6c6a3cccd3?auto=format&fit=crop&w=800&q=80"><h4>Сенсоры давления</h4><p>Точные и надёжные датчики для мониторинга трубопроводов.</p></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1633431248868-28f2c37b1f93?auto=format&fit=crop&w=800&q=80"><h4>Системы автоматизации</h4><p>Интеллектуальные решения для управления процессами добычи.</p></div>
-    </div>
-  </section>
-
-  <footer id="contacts">
-    <h3>Контакты</h3>
-    <p>Телефон: +7 (999) 123-45-67 | Email: info@28h.ru</p>
-    <p>© 2025 28H. Все права защищены.</p>
-    <div><a href="#">VK -</a> | <a href="http://t.me/VikaaaaXX">Telegram</a> | <a href="#">YouTube* - (Запрещенно на территории Российской Федерации)</a></div>
-  </footer>
+    // Мобильное меню
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+      hamburger.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
