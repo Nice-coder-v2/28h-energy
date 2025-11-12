@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>28H — Энергия будущего</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", sans-serif; scroll-behavior: smooth; }
+    body { background-color: #f9f9ff; color: #222; }
+    header { display: flex; justify-content: space-between; align-items: center; padding: 20px 10%; background: linear-gradient(90deg, #e7e9ff, #f9f9ff); position: fixed; width: 100%; top: 0; z-index: 1000; }
+    header h1 { font-weight: 700; font-size: 24px; color: #222; }
+    nav a { margin: 0 12px; color: #333; text-decoration: none; font-weight: 500; }
+    nav a:hover { color: #0056ff; }
+    .hero {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 120px 10% 80px; background: url('https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=1600&q=80') center/cover;
+      color: white; position: relative;
+    }
+    .hero::after {
+      content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.5);
+    }
+    .hero-content {
+      position: relative; max-width: 500px;
+    }
+    .hero h2 { font-size: 42px; font-weight: 700; margin-bottom: 20px; }
+    .hero p { font-size: 18px; margin-bottom: 25px; }
+    .buttons a {
+      text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: 600;
+      transition: 0.3s; margin-right: 10px;
+    }
+    .btn-primary { background: #0056ff; color: #fff; }
+    .btn-outline { border: 2px solid #fff; color: #fff; }
+    section { padding: 100px 10%; text-align: center; }
+    h3 { font-size: 30px; margin-bottom: 40px; color: #222; }
+    .services, .reasons, .projects, .reviews { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .card {
+      background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 6px 24px rgba(0,0,0,0.1); }
+    footer {
+      background: #111; color: #ccc; text-align: center; padding: 40px 10%;
+    }
+    footer a { color: #fff; text-decoration: none; margin: 0 10px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>28H</h1>
+    <nav>
+      <a href="#about">О нас</a>
+      <a href="#services">Наши услуги</a>
+      <a href="#reasons">Почему нас выбирают</a>
+      <a href="#projects">Наши проекты</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Энергия будущего</h2>
+      <p>Энергия будущего. Забота о природе.<br>Эффективные решения для нефтегазовой отрасли.</p>
+      <div class="buttons">
+        <a href="#" class="btn-primary">Каталог</a>
+        <a href="#about" class="btn-outline">Подробнее</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h3>О нас</h3>
+    <p>Компания 28H — современный лидер в области инновационных решений для нефтегазовой промышленности. Мы объединяем технологии и устойчивое развитие ради чистого будущего.</p>
+  </section>
+
+  <section id="services">
+    <h3>Наши услуги</h3>
+    <div class="services">
+      <div class="card"><h4>Добыча и переработка нефти</h4><p>Современные технологии для повышения эффективности и экологичности добычи.</p></div>
+      <div class="card"><h4>Инженерные решения</h4><p>Разработка и внедрение систем автоматизации и мониторинга.</p></div>
+      <div class="card"><h4>Энергоэффективные технологии</h4><p>Оптимизация производственных процессов и снижение энергозатрат.</p></div>
+      <div class="card"><h4>Консалтинг и сопровождение</h4><p>Профессиональная поддержка на всех этапах проектов.</p></div>
+    </div>
+  </section>
+
+  <section id="reasons">
+    <h3>Почему нас выбирают</h3>
+    <div class="reasons">
+      <div class="card"><h4>10+ лет опыта</h4><p>Богатый опыт работы в нефтегазовой отрасли.</p></div>
+      <div class="card"><h4>Современные технологии</h4><p>Используем передовые решения для повышения эффективности.</p></div>
+      <div class="card"><h4>Надёжность</h4><p>Гарантия качества и точность выполнения сроков.</p></div>
+      <div class="card"><h4>Международное сотрудничество</h4><p>Работаем с партнёрами по всему миру.</p></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h3>Наши проекты</h3>
+    <div class="projects">
+      <div class="card"><h4>Северный поток</h4><p>Масштабный проект по модернизации нефтяных трубопроводов.</p></div>
+      <div class="card"><h4>Green Energy</h4><p>Переход на экологически безопасные технологии добычи.</p></div>
+      <div class="card"><h4>Smart Refinery</h4><p>Автоматизация и цифровизация перерабатывающих комплексов.</p></div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <h3>Отзывы наших клиентов</h3>
+    <div class="reviews">
+      <div class="card"><p>“Отличное сотрудничество! Высокое качество и профессионализм.”</p><strong>— ООО "ЭнергоПром"</strong></div>
+      <div class="card"><p>“Современные технологии и надёжные решения. Рекомендуем!”</p><strong>— ГазИнжиниринг</strong></div>
+    </div>
+  </section>
+
+  <footer id="contacts">
+    <h3>Контакты</h3>
+    <p>Телефон: +7 (999) 123-45-67 | Email: info@28h.ru</p>
+    <p>© 2025 28H. Все права защищены.</p>
+    <div><a href="#">VK</a> | <a href="#">Telegram</a> | <a href="#">YouTube</a></div>
+  </footer>
+</body>
+</html>
