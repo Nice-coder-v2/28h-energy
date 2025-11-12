@@ -13,11 +13,11 @@
     nav a:hover { color: #0056ff; }
     .hero {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 120px 10% 80px; background: url('https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=1600&q=80') center/cover;
+      padding: 120px 10% 80px; background: url('https://images.unsplash.com/photo-1581091215367-59ab6f0c0b76?auto=format&fit=crop&w=1600&q=80') center/cover;
       color: white; position: relative;
     }
     .hero::after {
-      content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.5);
+      content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.55);
     }
     .hero-content {
       position: relative; max-width: 500px;
@@ -32,16 +32,18 @@
     .btn-outline { border: 2px solid #fff; color: #fff; }
     section { padding: 100px 10%; text-align: center; }
     h3 { font-size: 30px; margin-bottom: 40px; color: #222; }
-    .services, .reasons, .projects, .reviews { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .services, .reasons, .projects, .reviews, .catalog { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
     .card {
       background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);
       transition: 0.3s;
     }
     .card:hover { transform: translateY(-5px); box-shadow: 0 6px 24px rgba(0,0,0,0.1); }
+    .card img { width: 100%; height: 160px; object-fit: cover; border-radius: 10px; margin-bottom: 10px; }
     footer {
       background: #111; color: #ccc; text-align: center; padding: 40px 10%;
     }
     footer a { color: #fff; text-decoration: none; margin: 0 10px; }
+    .more { max-width: 700px; margin: 0 auto; font-size: 17px; color: #444; line-height: 1.6; }
   </style>
 </head>
 <body>
@@ -53,6 +55,7 @@
       <a href="#reasons">Почему нас выбирают</a>
       <a href="#projects">Наши проекты</a>
       <a href="#reviews">Отзывы</a>
+      <a href="#catalog">Каталог</a>
       <a href="#contacts">Контакты</a>
     </nav>
   </header>
@@ -62,8 +65,8 @@
       <h2>Энергия будущего</h2>
       <p>Энергия будущего. Забота о природе.<br>Эффективные решения для нефтегазовой отрасли.</p>
       <div class="buttons">
-        <a href="#" class="btn-primary">Каталог</a>
-        <a href="#about" class="btn-outline">Подробнее</a>
+        <a href="#catalog" class="btn-primary">Каталог</a>
+        <a href="#more" class="btn-outline">Подробнее</a>
       </div>
     </div>
   </section>
@@ -71,15 +74,40 @@
   <section id="about">
     <h3>О нас</h3>
     <p>Компания 28H — современный лидер в области инновационных решений для нефтегазовой промышленности. Мы объединяем технологии и устойчивое развитие ради чистого будущего.</p>
+    <br><br>
+    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80" width="80%" alt="О компании">
+  </section>
+
+  <section id="more">
+    <h3>Подробнее о компании</h3>
+    <div class="more">
+      <p>С 2015 года 28H внедряет высокотехнологичные решения для добычи, транспортировки и переработки нефти. Мы разрабатываем системы мониторинга, оптимизируем процессы и внедряем цифровые технологии. Наша цель — соединить промышленность и экологию, сделать энергетику устойчивой и безопасной.</p>
+    </div>
   </section>
 
   <section id="services">
     <h3>Наши услуги</h3>
     <div class="services">
-      <div class="card"><h4>Добыча и переработка нефти</h4><p>Современные технологии для повышения эффективности и экологичности добычи.</p></div>
-      <div class="card"><h4>Инженерные решения</h4><p>Разработка и внедрение систем автоматизации и мониторинга.</p></div>
-      <div class="card"><h4>Энергоэффективные технологии</h4><p>Оптимизация производственных процессов и снижение энергозатрат.</p></div>
-      <div class="card"><h4>Консалтинг и сопровождение</h4><p>Профессиональная поддержка на всех этапах проектов.</p></div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1581093448795-90a9d6c9cc47?auto=format&fit=crop&w=800&q=80" alt="">
+        <h4>Добыча и переработка нефти</h4>
+        <p>Современные технологии для повышения эффективности и экологичности добычи.</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1631570058472-7c2b1b21df95?auto=format&fit=crop&w=800&q=80" alt="">
+        <h4>Инженерные решения</h4>
+        <p>Разработка и внедрение систем автоматизации и мониторинга.</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=800&q=80" alt="">
+        <h4>Энергоэффективные технологии</h4>
+        <p>Оптимизация производственных процессов и снижение энергозатрат.</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?auto=format&fit=crop&w=800&q=80" alt="">
+        <h4>Консалтинг и сопровождение</h4>
+        <p>Профессиональная поддержка на всех этапах проектов.</p>
+      </div>
     </div>
   </section>
 
@@ -96,9 +124,9 @@
   <section id="projects">
     <h3>Наши проекты</h3>
     <div class="projects">
-      <div class="card"><h4>Северный поток</h4><p>Масштабный проект по модернизации нефтяных трубопроводов.</p></div>
-      <div class="card"><h4>Green Energy</h4><p>Переход на экологически безопасные технологии добычи.</p></div>
-      <div class="card"><h4>Smart Refinery</h4><p>Автоматизация и цифровизация перерабатывающих комплексов.</p></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=800&q=80"><h4>Северный поток</h4><p>Масштабный проект по модернизации нефтяных трубопроводов.</p></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1535379453347-1ffd615e2e8b?auto=format&fit=crop&w=800&q=80"><h4>Green Energy</h4><p>Переход на экологически безопасные технологии добычи.</p></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1616248308074-ec210a96b1a3?auto=format&fit=crop&w=800&q=80"><h4>Smart Refinery</h4><p>Автоматизация и цифровизация перерабатывающих комплексов.</p></div>
     </div>
   </section>
 
@@ -110,11 +138,20 @@
     </div>
   </section>
 
+  <section id="catalog">
+    <h3>Каталог продукции</h3>
+    <div class="catalog">
+      <div class="card"><img src="https://images.unsplash.com/photo-1581092334507-1e7e1e54e2df?auto=format&fit=crop&w=800&q=80"><h4>Нефтяные насосы</h4><p>Модели повышенной мощности для различных условий эксплуатации.</p></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1581093588394-7a6c6a3cccd3?auto=format&fit=crop&w=800&q=80"><h4>Сенсоры давления</h4><p>Точные и надёжные датчики для мониторинга трубопроводов.</p></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1633431248868-28f2c37b1f93?auto=format&fit=crop&w=800&q=80"><h4>Системы автоматизации</h4><p>Интеллектуальные решения для управления процессами добычи.</p></div>
+    </div>
+  </section>
+
   <footer id="contacts">
     <h3>Контакты</h3>
     <p>Телефон: +7 (999) 123-45-67 | Email: info@28h.ru</p>
     <p>© 2025 28H. Все права защищены.</p>
-    <div><a href="#">VK (НЕТУ)</a> | <a href="#">Telegram</a> | <a href="http://t.me/VikaaaaXX">YouTube* (Запрещенно на территории Российской Федерации</a></div>
+    <div><a href="#">VK -</a> | <a href="http://t.me/VikaaaaXX">Telegram</a> | <a href="#">YouTube* - (Запрещенно на территории Российской Федерации)</a></div>
   </footer>
 </body>
 </html>
